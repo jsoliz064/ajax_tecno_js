@@ -1,7 +1,9 @@
-
+///* 
 const mysql = require('mysql');
 //para las promesas
 const { promisify } = require('util');
+
+//const {Pool}  = require('pg')
 
 const { database } = require('./keys');
 
@@ -36,5 +38,20 @@ pool.getConnection((err, connection) => {
 
 // Promisify Pool Querys
 pool.query = promisify(pool.query);
-
+// */
 module.exports = pool;
+
+/* const {Pool}  = require('pg')
+const { database } = require('./keys');
+const pool = new Pool(database)
+
+pool.connect((err, client)=>{
+    if (err) {
+        console.error(err);
+    }
+    if (client) client.release()
+    console.log('DB esta conectada')
+    return;
+})
+
+module.exports=pool; */
