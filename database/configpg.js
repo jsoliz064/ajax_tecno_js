@@ -3,10 +3,10 @@ const mysql = require('mysql');
 //para las promesas
 const { promisify } = require('util');
 
-//const {Pool}  = require('pg')
 
 const { database } = require('./keys');
 
+//const {Pool}  = require('pg')
 const pool = mysql.createPool(database);
 
 pool.getConnection((err, connection) => {
